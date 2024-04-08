@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1my3ct4vyn0x"]
+
+[ext_resource type="Texture2D" uid="uid://3pjaylcopxxt" path="res://assets/Treasure Hunters/Merchant Ship/Sprites/Chest/Idle/1.png" id="1_h5m45"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4qqdi"]
+size = Vector2(85, 67.5)
+
+[node name="Finish" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(29.5, 29.5)
+scale = Vector2(2.84375, 2.84375)
+texture = ExtResource("1_h5m45")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(29.5, 40.25)
+shape = SubResource("RectangleShape2D_4qqdi")
