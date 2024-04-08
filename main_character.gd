@@ -20,6 +20,10 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		sprite_2d.animation = "jump"
+		if velocity.y > 0:
+			sprite_2d.animation = "fall"
+		if velocity.y == 0:
+			sprite_2d.animation = "ground"
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -35,5 +39,9 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-	var is_left = velocity.x < 0
-	sprite_2d.flip_h = is_left
+	if Input.is_action_pressed("left"):
+		sprite_2d.flip_h = true
+	
+	if Input.is_action_pressed("right"):
+		sprite_2d.flip_h = false
+	
