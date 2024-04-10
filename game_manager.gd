@@ -4,7 +4,7 @@ extends Node
 
 var points = 0
 
-func add_point():
-	points += 1
+func add_point(worth):
+	points += worth
 	print(points)
-	points_label.text = "Coins: " + str(points)
+	points_label.text = "     " + str(points)

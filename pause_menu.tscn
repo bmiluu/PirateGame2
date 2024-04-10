@@ -1,0 +1,157 @@
+[gd_scene load_steps=17 format=3 uid="uid://c1m56ab5avkn6"]
+
+[ext_resource type="Script" path="res://pause_menu.gd" id="1_08422"]
+[ext_resource type="Texture2D" uid="uid://bv3ba3yujaqe2" path="res://assets/Treasure Hunters/Wood and Paper UI/Sprites/Green Board/1.png" id="1_p38pm"]
+[ext_resource type="Texture2D" uid="uid://do6iuw418pm2l" path="res://assets/Treasure Hunters/Wood and Paper UI/Sprites/Green Board/3.png" id="2_216qm"]
+[ext_resource type="Texture2D" uid="uid://b4qpnlsplo8wk" path="res://assets/Treasure Hunters/Wood and Paper UI/Sprites/Green Board/7.png" id="3_feqmg"]
+[ext_resource type="Texture2D" uid="uid://dwj73nvyki7as" path="res://assets/Treasure Hunters/Wood and Paper UI/Sprites/Green Board/9.png" id="4_ugkfq"]
+[ext_resource type="Texture2D" uid="uid://dyu01umv2ui8b" path="res://assets/Treasure Hunters/Wood and Paper UI/Sprites/Green Button/2.png" id="5_07lio"]
+[ext_resource type="Texture2D" uid="uid://dpkektggbpb3y" path="res://assets/Treasure Hunters/Wood and Paper UI/Sprites/Green Button/4.png" id="6_1tkty"]
+[ext_resource type="Texture2D" uid="uid://clsxdv4segha8" path="res://assets/Treasure Hunters/Wood and Paper UI/Sprites/Big Text/5.png" id="7_nbi2u"]
+[ext_resource type="Texture2D" uid="uid://x3ep600jont7" path="res://assets/Treasure Hunters/Wood and Paper UI/Sprites/Big Text/24.png" id="8_0x5tu"]
+[ext_resource type="Texture2D" uid="uid://c76ssg8s8psh" path="res://assets/Treasure Hunters/Wood and Paper UI/Sprites/Green Button/3.png" id="8_kq53r"]
+[ext_resource type="Texture2D" uid="uid://bklfleewloilq" path="res://assets/Treasure Hunters/Wood and Paper UI/Sprites/Big Text/9.png" id="9_jd0yn"]
+[ext_resource type="Texture2D" uid="uid://bn7mx81o8cawk" path="res://assets/Treasure Hunters/Wood and Paper UI/Sprites/Big Text/20.png" id="10_exomw"]
+[ext_resource type="Texture2D" uid="uid://bm5oxlokg6miy" path="res://assets/Treasure Hunters/Wood and Paper UI/Sprites/Big Text/18.png" id="13_udda2"]
+[ext_resource type="Texture2D" uid="uid://dj53gfun24h1o" path="res://assets/Treasure Hunters/Wood and Paper UI/Sprites/Big Text/13.png" id="14_2wt2v"]
+[ext_resource type="Texture2D" uid="uid://b3ovfkuynb8tt" path="res://assets/Treasure Hunters/Wood and Paper UI/Sprites/Big Text/19.png" id="15_ua0d3"]
+[ext_resource type="Texture2D" uid="uid://e6copmo43idb" path="res://assets/Treasure Hunters/Wood and Paper UI/Sprites/Big Text/21.png" id="16_um06k"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_08422")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_p38pm")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_right = 80.0
+offset_bottom = 40.0
+texture = ExtResource("2_216qm")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = 40.0
+offset_right = 40.0
+offset_bottom = 80.0
+texture = ExtResource("3_feqmg")
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 80.0
+offset_bottom = 80.0
+texture = ExtResource("4_ugkfq")
+
+[node name="Exit" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 43.0
+offset_right = 60.0
+offset_bottom = 58.0
+
+[node name="TextureRect5" type="TextureRect" parent="Exit"]
+layout_mode = 0
+offset_right = 21.0
+offset_bottom = 18.0
+texture = ExtResource("5_07lio")
+
+[node name="TextureRect6" type="TextureRect" parent="Exit"]
+layout_mode = 0
+offset_left = 21.0
+offset_right = 42.0
+offset_bottom = 18.0
+texture = ExtResource("6_1tkty")
+
+[node name="5" type="Sprite2D" parent="Exit"]
+position = Vector2(8, 8)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("7_nbi2u")
+
+[node name="24" type="Sprite2D" parent="Exit"]
+position = Vector2(17, 8)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_0x5tu")
+
+[node name="9" type="Sprite2D" parent="Exit"]
+position = Vector2(26, 8)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("9_jd0yn")
+
+[node name="20" type="Sprite2D" parent="Exit"]
+position = Vector2(35, 8)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("10_exomw")
+
+[node name="Resume" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 18.0
+offset_right = 64.0
+offset_bottom = 33.0
+
+[node name="TextureRect5" type="TextureRect" parent="Resume"]
+layout_mode = 0
+offset_left = -5.0
+offset_right = 16.0
+offset_bottom = 18.0
+texture = ExtResource("5_07lio")
+
+[node name="TextureRect6" type="TextureRect" parent="Resume"]
+layout_mode = 0
+offset_left = 24.0
+offset_right = 45.0
+offset_bottom = 18.0
+texture = ExtResource("6_1tkty")
+
+[node name="TextureRect" type="TextureRect" parent="Resume"]
+layout_mode = 0
+offset_left = 12.0
+offset_right = 54.0
+offset_bottom = 45.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("8_kq53r")
+
+[node name="18" type="Sprite2D" parent="."]
+position = Vector2(23, 26)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("13_udda2")
+
+[node name="6" type="Sprite2D" parent="."]
+position = Vector2(30, 26)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_nbi2u")
+
+[node name="7" type="Sprite2D" parent="."]
+position = Vector2(58, 26)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_nbi2u")
+
+[node name="13" type="Sprite2D" parent="."]
+position = Vector2(51, 26)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("14_2wt2v")
+
+[node name="19" type="Sprite2D" parent="."]
+position = Vector2(37, 26)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("15_ua0d3")
+
+[node name="21" type="Sprite2D" parent="."]
+position = Vector2(44, 26)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("16_um06k")
+
+[connection signal="pressed" from="Exit" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="Resume" to="." method="_on_texture_button_pressed"]

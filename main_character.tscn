@@ -1,9 +1,13 @@
-[gd_scene load_steps=25 format=3 uid="uid://w7rrk2gfntaf"]
+[gd_scene load_steps=30 format=3 uid="uid://w7rrk2gfntaf"]
 
 [ext_resource type="Script" path="res://main_character.gd" id="1_1rox0"]
 [ext_resource type="Texture2D" uid="uid://bjqrnlwuww3n" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="2_pxhgt"]
+[ext_resource type="Texture2D" uid="uid://cwb4ho0fppjtk" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/08-Dead Ground/Dead Ground 01.png" id="2_qsnqf"]
 [ext_resource type="Texture2D" uid="uid://cwh06rvu5ht31" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 02.png" id="3_2e6xl"]
+[ext_resource type="Texture2D" uid="uid://bby5jjbie70eq" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/08-Dead Ground/Dead Ground 02.png" id="3_oj4j3"]
+[ext_resource type="Texture2D" uid="uid://c6snsbn3bvpml" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/08-Dead Ground/Dead Ground 03.png" id="4_b4rmy"]
 [ext_resource type="Texture2D" uid="uid://d2p3l38gseegd" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 03.png" id="4_f5oyh"]
+[ext_resource type="Texture2D" uid="uid://c3p8bwo68ie4p" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/08-Dead Ground/Dead Ground 04.png" id="5_2vfqw"]
 [ext_resource type="Texture2D" uid="uid://c0ut016rayq8r" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 04.png" id="5_ujley"]
 [ext_resource type="Texture2D" uid="uid://d1cuid6qevtxf" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 05.png" id="6_dntdi"]
 [ext_resource type="Texture2D" uid="uid://dru0sihxtx0qu" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/04-Fall/Fall 01.png" id="7_o8bgp"]
@@ -19,11 +23,29 @@
 [ext_resource type="Texture2D" uid="uid://ds5awtwa88qk7" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Dust Particles/Run 01.png" id="24_1lida"]
 [ext_resource type="Texture2D" uid="uid://b8y8aynft8gm4" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Dust Particles/Run 02.png" id="25_gt3lc"]
 [ext_resource type="Texture2D" uid="uid://cdaifqnmb7rlj" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Dust Particles/Run 03.png" id="26_00h88"]
+[ext_resource type="PackedScene" uid="uid://c1m56ab5avkn6" path="res://pause_menu.tscn" id="26_y0h3y"]
 [ext_resource type="Texture2D" uid="uid://ll4wj4muvs16" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Dust Particles/Run 04.png" id="27_6fvld"]
 [ext_resource type="Texture2D" uid="uid://dyhu8qpjc6at1" path="res://assets/Treasure Hunters/Captain Clown Nose/Sprites/Dust Particles/Run 05.png" id="28_mo4h1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6x5p5"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qsnqf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_oj4j3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_b4rmy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2vfqw")
+}],
+"loop": false,
+"name": &"death",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_pxhgt")
@@ -125,7 +147,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 position = Vector2(66, 521)
 script = ExtResource("1_1rox0")
 
@@ -134,16 +156,39 @@ texture_filter = 1
 position = Vector2(0, 2)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_6x5p5")
+animation = &"death"
 autoplay = "default"
+frame = 3
+frame_progress = 0.666665
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)
 shape = SubResource("CapsuleShape2D_b6qn1")
 
-[node name="Sprite2D2" type="AnimatedSprite2D" parent="."]
+[node name="Dust" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(-45, 1.99998)
 scale = Vector2(2.375, 3.275)
 sprite_frames = SubResource("SpriteFrames_rvoq2")
 animation = &"run_dust"
 autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -8)
+shape = SubResource("CapsuleShape2D_b6qn1")
+
+[node name="DeathTimer" type="Timer" parent="."]
+
+[node name="PauseMenu" parent="." instance=ExtResource("26_y0h3y")]
+visible = false
+light_mask = 512
+visibility_layer = 512
+offset_left = -185.0
+offset_top = -239.0
+offset_right = -185.0
+offset_bottom = -239.0
+scale = Vector2(5, 5)
+
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dmw8mve6f3arq"]
+[gd_scene load_steps=9 format=3 uid="uid://dmw8mve6f3arq"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_vdlu2"]
 [ext_resource type="Texture2D" uid="uid://bs70l0nbwy1hj" path="res://assets/bgs.png" id="2_sy2b1"]
 [ext_resource type="Texture2D" uid="uid://dwrw4l1o3475e" path="res://assets/logos.png" id="3_6qj8j"]
+[ext_resource type="Texture2D" uid="uid://q53uag82q8nt" path="res://assets/Treasure Hunters/Wood and Paper UI/Sprites/Green Button/1.png" id="4_mhqsj"]
+[ext_resource type="Texture2D" uid="uid://b3ovfkuynb8tt" path="res://assets/Treasure Hunters/Wood and Paper UI/Sprites/Big Text/19.png" id="5_nhfko"]
+[ext_resource type="Texture2D" uid="uid://bn7mx81o8cawk" path="res://assets/Treasure Hunters/Wood and Paper UI/Sprites/Big Text/20.png" id="6_qnbif"]
+[ext_resource type="Texture2D" uid="uid://c28t527cslgpq" path="res://assets/Treasure Hunters/Wood and Paper UI/Sprites/Big Text/1.png" id="7_ok8d6"]
+[ext_resource type="Texture2D" uid="uid://bm5oxlokg6miy" path="res://assets/Treasure Hunters/Wood and Paper UI/Sprites/Big Text/18.png" id="8_23klt"]
 
 [node name="MainMenu" type="Node"]
 script = ExtResource("1_vdlu2")
@@ -33,19 +38,56 @@ grow_horizontal = 2
 texture = ExtResource("3_6qj8j")
 expand_mode = 1
 
-[node name="Button" type="Button" parent="."]
+[node name="TextureRect3" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = 463.0
+offset_top = 367.0
+offset_right = 666.0
+offset_bottom = 464.0
+texture = ExtResource("4_mhqsj")
+
+[node name="Button" type="Button" parent="TextureRect3"]
+show_behind_parent = true
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -87.0
-offset_top = -43.5
-offset_right = 87.0
-offset_bottom = 43.5
+offset_left = -87.5
+offset_top = -42.5
+offset_right = 87.5
+offset_bottom = 29.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = "Start"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="S" type="Sprite2D" parent="TextureRect3"]
+texture_filter = 1
+position = Vector2(36, 44)
+scale = Vector2(3, 3)
+texture = ExtResource("5_nhfko")
+
+[node name="T" type="Sprite2D" parent="TextureRect3"]
+texture_filter = 1
+position = Vector2(68, 44)
+scale = Vector2(3, 3)
+texture = ExtResource("6_qnbif")
+
+[node name="T2" type="Sprite2D" parent="TextureRect3"]
+texture_filter = 1
+position = Vector2(166, 44)
+scale = Vector2(3, 3)
+texture = ExtResource("6_qnbif")
+
+[node name="A" type="Sprite2D" parent="TextureRect3"]
+position = Vector2(101, 44)
+scale = Vector2(3, 3)
+texture = ExtResource("7_ok8d6")
+
+[node name="R" type="Sprite2D" parent="TextureRect3"]
+position = Vector2(134, 44)
+scale = Vector2(3, 3)
+texture = ExtResource("8_23klt")
+
+[connection signal="pressed" from="TextureRect3/Button" to="." method="_on_button_pressed"]

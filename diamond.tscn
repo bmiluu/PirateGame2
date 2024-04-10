@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://dmfg3n4dl6te3"]
+
+[ext_resource type="Texture2D" uid="uid://dyy5jy7me45yf" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Blue Diamond/01.png" id="1_7osau"]
+[ext_resource type="Script" path="res://diamond.gd" id="1_kptio"]
+[ext_resource type="Texture2D" uid="uid://bht5gttxr4tbr" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Blue Diamond/02.png" id="2_liq0c"]
+[ext_resource type="Texture2D" uid="uid://3qmjkh5xawy" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Blue Diamond/03.png" id="3_qitoq"]
+[ext_resource type="Texture2D" uid="uid://cq1tddct4w5w8" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Blue Diamond/04.png" id="4_uu6vb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2g31a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7osau")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_liq0c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qitoq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_uu6vb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vnhun"]
+radius = 28.4429
+
+[node name="Area2D" type="Area2D"]
+position = Vector2(1, 1)
+script = ExtResource("1_kptio")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1, -5.96046e-08)
+scale = Vector2(3.5, 3.46)
+sprite_frames = SubResource("SpriteFrames_2g31a")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, -5)
+shape = SubResource("CircleShape2D_vnhun")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
