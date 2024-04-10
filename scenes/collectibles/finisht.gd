@@ -13,4 +13,4 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if (body.name == "CharacterBody2D"):
-			get_tree().change_scene_to_file("res://second_map.tscn")
+			get_tree().change_scene_to_file("res://main_menu.tscn")

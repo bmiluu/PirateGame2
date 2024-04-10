@@ -3,7 +3,7 @@ extends CharacterBody2D
 class_name Player
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -600.0
+const JUMP_VELOCITY = -550.0
 @onready var sprite_2d = $Sprite2D
 @onready var sprite_2d_2 = $Dust
 @onready var death_timer = $DeathTimer
@@ -81,3 +81,11 @@ func show_pause_menu(paused):
 	else:
 		pause_menu.visible = false
 		Engine.time_scale = 1
+
+
+func _on_finish_body_entered(body):
+	pass # Replace with function body.
+
+
+func _on_finish_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	pass # Replace with function body.
