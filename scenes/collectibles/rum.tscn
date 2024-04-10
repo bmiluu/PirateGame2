@@ -1,0 +1,60 @@
+[gd_scene load_steps=11 format=3 uid="uid://dgt73b6pg0uek"]
+
+[ext_resource type="Script" path="res://scenes/collectibles/rum.gd" id="1_6kdvl"]
+[ext_resource type="Texture2D" uid="uid://ctfylnihvailj" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Green Bottle/01.png" id="1_e6ad1"]
+[ext_resource type="Texture2D" uid="uid://chv6gfvkyl6do" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Green Bottle/02.png" id="2_u6exb"]
+[ext_resource type="Texture2D" uid="uid://7xkku6yehlg0" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Green Bottle/03.png" id="3_owr8f"]
+[ext_resource type="Texture2D" uid="uid://dsp8f1ijua2qh" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Green Bottle/04.png" id="4_3hsnh"]
+[ext_resource type="Texture2D" uid="uid://3kuatmnl1dp8" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Green Bottle/05.png" id="5_1sy8y"]
+[ext_resource type="Texture2D" uid="uid://bwpujuxexqppf" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Green Bottle/06.png" id="6_podpi"]
+[ext_resource type="Texture2D" uid="uid://cgngt7q4meol" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Green Bottle/07.png" id="7_vyyxp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hg7my"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_e6ad1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_u6exb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_owr8f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3hsnh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1sy8y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_podpi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_vyyxp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aghwl"]
+radius = 30.0666
+
+[node name="Collectible" type="Area2D"]
+script = ExtResource("1_6kdvl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(19.5, 19.5)
+scale = Vector2(3.4375, 3.4375)
+sprite_frames = SubResource("SpriteFrames_hg7my")
+autoplay = "default"
+frame = 4
+frame_progress = 0.245737
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(22, 21)
+shape = SubResource("CircleShape2D_aghwl")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

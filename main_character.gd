@@ -19,7 +19,7 @@ func _ready():
 	
 func _physics_process(delta):
 	if Input.is_action_pressed("pause"):
-		show_pause_menu()
+		show_pause_menu(false)
 	if not is_dead:
 		if velocity.x > 1 || velocity.x < -1 :
 			sprite_2d.animation = "running"
@@ -73,7 +73,11 @@ func die():
 func _on_death_timer_timeout():
 	get_tree().reload_current_scene()
 
-func show_pause_menu():
-	Engine.time_scale = 0
-	pause_menu.visible = true
-	
+
+func show_pause_menu(paused):
+	if not paused:
+		pause_menu.visible = true
+		Engine.time_scale = 0
+	else:
+		pause_menu.visible = false
+		Engine.time_scale = 1

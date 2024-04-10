@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://0twrasie37cq"]
+
+[ext_resource type="Script" path="res://scenes/collectibles/silver_coin.gd" id="1_7xdea"]
+[ext_resource type="Texture2D" uid="uid://cfpgw1lhm2n4f" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Silver Coin/01.png" id="2_qsavt"]
+[ext_resource type="Texture2D" uid="uid://c6uyi6fnstsl3" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Silver Coin/02.png" id="3_kuovj"]
+[ext_resource type="Texture2D" uid="uid://buvtjm1dpngwu" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Silver Coin/03.png" id="4_81inw"]
+[ext_resource type="Texture2D" uid="uid://btnjfkes6pxh3" path="res://assets/Treasure Hunters/Pirate Treasure/Sprites/Silver Coin/04.png" id="5_ympx7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hg7my"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qsavt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_kuovj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_81inw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ympx7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aghwl"]
+radius = 22.0
+
+[node name="Collectible" type="Area2D"]
+script = ExtResource("1_7xdea")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(19.5, 19.5)
+scale = Vector2(3.4375, 3.4375)
+sprite_frames = SubResource("SpriteFrames_hg7my")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(22, 21)
+shape = SubResource("CircleShape2D_aghwl")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

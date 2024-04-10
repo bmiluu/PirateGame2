@@ -1,0 +1,66 @@
+[gd_scene load_steps=11 format=3 uid="uid://b8ric4n3ocrvj"]
+
+[ext_resource type="Texture2D" uid="uid://qvhspiop15fv" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/02-Run/Run 01.png" id="1_81eao"]
+[ext_resource type="Script" path="res://crabby.gd" id="1_b186w"]
+[ext_resource type="Texture2D" uid="uid://bd8spy0wiamp1" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/02-Run/Run 02.png" id="2_mvfbt"]
+[ext_resource type="Texture2D" uid="uid://bsgunmotp0uyu" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/02-Run/Run 03.png" id="3_clr5s"]
+[ext_resource type="Texture2D" uid="uid://dk88orakn742" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/02-Run/Run 04.png" id="4_nia2u"]
+[ext_resource type="Texture2D" uid="uid://conumdr50jr03" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/02-Run/Run 05.png" id="5_pyusu"]
+[ext_resource type="Texture2D" uid="uid://yrctbm0uogry" path="res://assets/Treasure Hunters/The Crusty Crew/Sprites/Crabby/02-Run/Run 06.png" id="6_ri1jn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ypsbr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_81eao")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_mvfbt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_clr5s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nia2u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_pyusu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ri1jn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nh0dw"]
+size = Vector2(83, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xt085"]
+size = Vector2(83, 57)
+
+[node name="Crabby" type="CharacterBody2D"]
+script = ExtResource("1_b186w")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_ypsbr")
+autoplay = "default"
+frame = 2
+frame_progress = 0.547852
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-1.5, 7)
+shape = SubResource("RectangleShape2D_nh0dw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 7.5)
+shape = SubResource("RectangleShape2D_xt085")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(-45, 1)
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
